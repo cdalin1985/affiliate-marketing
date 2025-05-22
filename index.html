@@ -31,6 +31,27 @@
         <section id="campaigns" style="display: none;">
             <h2>Campaign Management</h2>
             <p>Create and manage your affiliate marketing campaigns.</p>
+
+            <form id="createCampaignForm">
+                <label for="campaignName">Campaign Name:</label><br>
+                <input type="text" id="campaignName" name="campaignName"><br>
+
+                <label for="productPromoted">Product Promoted:</label><br>
+                <input type="text" id="productPromoted" name="productPromoted"><br>
+
+                <label for="affiliateLink">Affiliate Link:</label><br>
+                <input type="url" id="affiliateLink" name="affiliateLink"><br>
+
+                <label for="campaignStartDate">Campaign Start Date:</label><br>
+                <input type="date" id="campaignStartDate" name="campaignStartDate"><br><br>
+
+                <button type="button" onclick="handleCreateCampaign()">Create Campaign</button>
+            </form>
+
+            <div id="campaignListContainer">
+                <!-- Campaign list will be displayed here -->
+            </div>
+
             <button onclick="backToDashboard()">Back to Dashboard</button>
         </section>
     </main>

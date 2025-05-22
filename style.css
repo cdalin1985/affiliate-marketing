@@ -65,3 +65,78 @@ footer {
     padding: 10px 0;
     font-size: 0.9rem;
 }
+
+/* Campaign Management Styles */
+#createCampaignForm {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#createCampaignForm label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}
+
+#createCampaignForm input[type="text"],
+#createCampaignForm input[type="url"],
+#createCampaignForm input[type="date"] {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for width calculation */
+}
+
+#createCampaignForm button {
+    display: block;
+    width: auto;
+    margin-top: 10px; /* Margin above the button */
+    margin-bottom: 10px; /* Margin below the button, before the main "Back to Dashboard" button */
+}
+
+#campaignListContainer {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#campaignListContainer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#campaignListContainer li {
+    /* Styles for individual campaign items are applied in script.js */
+    /* but we can add default list item styling if needed or enhance it here */
+    /* For example, ensuring no default bullet points if <ul> was used without list-style:none */
+}
+
+#campaignListContainer h4 { /* Campaign Name */
+    font-weight: bold;
+    color: #0d4f00; /* Same as header, for consistency */
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+#campaignListContainer p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+#campaignListContainer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#campaignListContainer a:hover {
+    text-decoration: underline;
+}
