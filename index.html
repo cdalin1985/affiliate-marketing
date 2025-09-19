@@ -3,41 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitPilot</title>
+    <meta name="description" content="ProfitPilot - Your AI-powered partner for affiliate marketing success. Manage campaigns, track performance, and optimize your affiliate marketing strategy.">
+    <meta name="keywords" content="affiliate marketing, AI, campaign management, performance tracking, ProfitPilot">
+    <meta name="author" content="ProfitPilot">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ProfitPilot - AI-Powered Affiliate Marketing">
+    <meta property="og:description" content="Your AI-powered partner for affiliate marketing success">
+    <meta property="og:url" content="https://profitpilot.com">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="ProfitPilot - AI-Powered Affiliate Marketing">
+    <meta property="twitter:description" content="Your AI-powered partner for affiliate marketing success">
+    
+    <title>ProfitPilot - AI-Powered Affiliate Marketing Platform</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Welcome to ProfitPilot</h1>
         <p>Your AI-powered partner for affiliate marketing success</p>
     </header>
 
-    <main>
+    <main role="main" id="main-content">
         <!-- Onboarding Section -->
-        <section id="onboarding">
-            <h2>Get Started</h2>
-            <p>Follow these steps to begin:</p>
-            <button onclick="startOnboarding()">Start Onboarding</button>
+        <section id="onboarding" aria-labelledby="onboarding-heading">
+            <h2 id="onboarding-heading">Get Started</h2>
+            <p>Follow these steps to begin your affiliate marketing journey:</p>
+            <button id="start-onboarding-btn" 
+                    type="button" 
+                    aria-describedby="onboarding-description"
+                    class="primary-button">
+                Start Onboarding
+            </button>
+            <p id="onboarding-description" class="sr-only">
+                Click this button to complete the onboarding process and access your dashboard
+            </p>
         </section>
 
         <!-- Dashboard Section -->
-        <section id="dashboard" style="display: none;">
-            <h2>Dashboard</h2>
+        <section id="dashboard" 
+                 style="display: none;" 
+                 aria-labelledby="dashboard-heading"
+                 aria-live="polite">
+            <h2 id="dashboard-heading">Dashboard</h2>
             <p>Track your campaigns, performance, and analytics here.</p>
-            <button onclick="viewCampaigns()">View Campaigns</button>
+            <div class="dashboard-stats" role="region" aria-label="Dashboard Statistics">
+                <div class="stat-card">
+                    <h3>Active Campaigns</h3>
+                    <span class="stat-number" id="active-campaigns">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <span class="stat-number" id="total-revenue">$0.00</span>
+                </div>
+                <div class="stat-card">
+                    <h3>Conversion Rate</h3>
+                    <span class="stat-number" id="conversion-rate">0%</span>
+                </div>
+            </div>
+            <button id="view-campaigns-btn" 
+                    type="button" 
+                    aria-describedby="campaigns-description"
+                    class="primary-button">
+                View Campaigns
+            </button>
+            <p id="campaigns-description" class="sr-only">
+                Navigate to campaign management to create and manage your affiliate marketing campaigns
+            </p>
         </section>
 
         <!-- Campaign Management Section -->
-        <section id="campaigns" style="display: none;">
-            <h2>Campaign Management</h2>
+        <section id="campaigns" 
+                 style="display: none;" 
+                 aria-labelledby="campaigns-heading"
+                 aria-live="polite">
+            <h2 id="campaigns-heading">Campaign Management</h2>
             <p>Create and manage your affiliate marketing campaigns.</p>
-            <button onclick="backToDashboard()">Back to Dashboard</button>
+            
+            <div class="campaign-actions" role="region" aria-label="Campaign Actions">
+                <button type="button" 
+                        class="secondary-button" 
+                        id="create-campaign-btn"
+                        aria-describedby="create-campaign-description">
+                    <span aria-hidden="true">+</span> Create New Campaign
+                </button>
+                <p id="create-campaign-description" class="sr-only">
+                    Create a new affiliate marketing campaign
+                </p>
+            </div>
+            
+            <div class="campaigns-list" 
+                 role="region" 
+                 aria-label="Campaign List" 
+                 id="campaigns-container">
+                <p class="empty-state">No campaigns yet. Create your first campaign to get started!</p>
+            </div>
+            
+            <button id="back-to-dashboard-btn" 
+                    type="button" 
+                    aria-describedby="back-description"
+                    class="tertiary-button">
+                ← Back to Dashboard
+            </button>
+            <p id="back-description" class="sr-only">
+                Return to the main dashboard
+            </p>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>© 2025 ProfitPilot. All rights reserved.</p>
+        <nav aria-label="Footer Navigation">
+            <a href="#" aria-label="Privacy Policy">Privacy</a> |
+            <a href="#" aria-label="Terms of Service">Terms</a> |
+            <a href="#" aria-label="Contact Support">Support</a>
+        </nav>
     </footer>
+
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <script src="script.js"></script>
 </body>
