@@ -1,0 +1,17 @@
+{
+  "name": "profitpilot-affiliate-marketing",
+  "version": "2.0.0",
+  "description": "Modern AI-powered affiliate marketing platform",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["affiliate-marketing", "ai-powered", "marketing-automation"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
