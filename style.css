@@ -1,67 +1,236 @@
-/* General Reset */
+/* ==========================================================================
+   ProfitPilot - Modern Affiliate Marketing Platform
+   Modernized with CSS3 custom properties, animations, and best practices
+   ========================================================================== */
+
+/* CSS Custom Properties (Variables) for theming */
+:root {
+    --primary-color: #0d4f00;
+    --primary-dark: #0b3e00;
+    --primary-light: #0f6200;
+    --background-color: #f8f8f8;
+    --surface-color: #ffffff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-on-primary: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --max-width: 600px;
+}
+
+/* General Reset & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
     text-align: center;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
 header {
-    background-color: #0d4f00;
-    color: white;
-    padding: 20px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--text-on-primary);
+    padding: 2rem 1rem;
+    box-shadow: var(--shadow-md);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 header p {
-    margin: 5px 0 15px;
-    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    opacity: 0.95;
 }
 
-/* Main Sections */
+/* Main Content */
 main {
-    padding: 20px;
+    flex: 1;
+    padding: 2rem 1rem;
+    position: relative;
 }
 
-section {
-    margin: 20px auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* View Sections with Modern Animations */
+.view-section {
+    margin: 2rem auto;
+    max-width: var(--max-width);
+    padding: 2.5rem 2rem;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease,
+                transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+    display: none;
 }
 
-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+.view-section.active {
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.view-section:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.view-section h2 {
+    font-size: clamp(1.5rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.view-section p {
+    margin: 1rem 0 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Modern Button Styles */
 button {
-    padding: 10px 20px;
+    padding: 0.875rem 2rem;
     font-size: 1rem;
-    color: white;
-    background-color: #0d4f00;
+    font-weight: 600;
+    color: var(--text-on-primary);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
     border: none;
-    border-radius: 5px;
+    border-radius: calc(var(--border-radius) / 2);
     cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left var(--transition-speed) ease;
 }
 
 button:hover {
-    background-color: #0b3e00;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+button:focus {
+    outline: 3px solid rgba(13, 79, 0, 0.3);
+    outline-offset: 2px;
+}
+
+/* Toast Notification System */
+.toast {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all var(--transition-speed) cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+    font-weight: 500;
+}
+
+.toast.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.toast-success {
+    border-left: 4px solid #10b981;
+    color: #065f46;
+}
+
+.toast-info {
+    border-left: 4px solid #3b82f6;
+    color: #1e40af;
+}
+
+.toast-error {
+    border-left: 4px solid #ef4444;
+    color: #991b1b;
 }
 
 /* Footer */
 footer {
-    margin-top: 20px;
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
+    margin-top: auto;
+    background-color: var(--text-primary);
+    color: var(--text-on-primary);
+    padding: 1.5rem 1rem;
     font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .view-section {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .toast {
+        right: 1rem;
+        left: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitPilot</title>
+    <meta name="description" content="ProfitPilot - Your AI-powered partner for affiliate marketing success">
+    <title>ProfitPilot - Affiliate Marketing Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Welcome to ProfitPilot</h1>
         <p>Your AI-powered partner for affiliate marketing success</p>
     </header>
 
-    <main>
+    <main role="main">
         <!-- Onboarding Section -->
-        <section id="onboarding">
-            <h2>Get Started</h2>
+        <section id="onboarding" class="view-section active" aria-hidden="false" role="region" aria-labelledby="onboarding-title">
+            <h2 id="onboarding-title">Get Started</h2>
             <p>Follow these steps to begin:</p>
-            <button onclick="startOnboarding()">Start Onboarding</button>
+            <button type="button" aria-label="Start the onboarding process">
+                Start Onboarding
+            </button>
         </section>
 
         <!-- Dashboard Section -->
-        <section id="dashboard" style="display: none;">
-            <h2>Dashboard</h2>
+        <section id="dashboard" class="view-section" aria-hidden="true" role="region" aria-labelledby="dashboard-title">
+            <h2 id="dashboard-title">Dashboard</h2>
             <p>Track your campaigns, performance, and analytics here.</p>
-            <button onclick="viewCampaigns()">View Campaigns</button>
+            <button type="button" aria-label="View your campaigns">
+                View Campaigns
+            </button>
         </section>
 
         <!-- Campaign Management Section -->
-        <section id="campaigns" style="display: none;">
-            <h2>Campaign Management</h2>
+        <section id="campaigns" class="view-section" aria-hidden="true" role="region" aria-labelledby="campaigns-title">
+            <h2 id="campaigns-title">Campaign Management</h2>
             <p>Create and manage your affiliate marketing campaigns.</p>
-            <button onclick="backToDashboard()">Back to Dashboard</button>
+            <button type="button" aria-label="Return to dashboard">
+                Back to Dashboard
+            </button>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>© 2025 ProfitPilot. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
